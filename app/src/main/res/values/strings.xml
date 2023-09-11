@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Englearn</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_second">Second</string>
+    <string name="title_third">Third</string>
+    <string name="Welcome">Добро пожаловать в Englearn!</string>
+</resources>
