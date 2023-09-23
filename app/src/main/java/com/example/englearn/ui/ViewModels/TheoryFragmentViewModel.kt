@@ -1,13 +1,14 @@
-package com.example.englearn.ui.dashboard
+package com.example.englearn.ui.ViewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SecondFragmentViewModel : ViewModel() {
+class TheoryFragmentViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Что ждёт нас впереди?..."
+        value = "Мы проделали долгий путь...Назад?"
+
     }
     val text: LiveData<String> = _text
 }

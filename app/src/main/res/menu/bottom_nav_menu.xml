@@ -7,13 +7,13 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/baseline_account_circle_24"
-        android:title="@string/title_second" />
+        android:id="@+id/navigation_rhyme"
+        android:icon="@drawable/rhymes_icon"
+        android:title="@string/title_rhyme_generator" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/baseline_checklist_24"
-        android:title="@string/title_third" />
+        android:id="@+id/navigation_theory"
+        android:icon="@drawable/theory_data_base_icon"
+        android:title="@string/title_theory" />
 
 </menu>

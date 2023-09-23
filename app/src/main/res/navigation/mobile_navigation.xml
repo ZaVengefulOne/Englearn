@@ -7,19 +7,46 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.englearn.ui.home.HomeFragment"
+        android:name="com.example.englearn.ui.Fragments.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_rhyme"
+            app:destination="@+id/navigation_rhyme"
+            />
+        <action
+            android:id="@+id/action_home_to_theory"
+            app:destination="@+id/navigation_theory"
+            />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.englearn.ui.dashboard.SecondFragment"
-        android:label="@string/title_second"
-        tools:layout="@layout/fragment_second" />
+        android:id="@+id/navigation_rhyme"
+        android:name="com.example.englearn.ui.Fragments.RhymeFragment"
+        android:label="@string/title_rhyme_generator"
+        tools:layout="@layout/fragment_rhyme">
+    <action
+        android:id="@+id/action_rhyme_to_home"
+        app:destination="@+id/navigation_home"
+        />
+    <action
+        android:id="@+id/action_rhyme_to_theory"
+        app:destination="@+id/navigation_theory"
+        />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.englearn.ui.notifications.ThirdFragment"
-        android:label="@string/title_third"
-        tools:layout="@layout/fragment_third" />
+        android:id="@+id/navigation_theory"
+        android:name="com.example.englearn.ui.Fragments.TheoryFragment"
+        android:label="@string/title_theory"
+        tools:layout="@layout/fragment_theory">
+        <action
+            android:id="@+id/action_theory_to_home"
+            app:destination="@+id/navigation_home"
+            />
+        <action
+            android:id="@+id/action_theory_to_rhyme"
+            app:destination="@+id/navigation_rhyme"
+            />
+    </fragment>
 </navigation>

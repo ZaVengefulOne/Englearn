@@ -1,4 +1,4 @@
-package com.example.englearn.ui.home
+package com.example.englearn.ui.Fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.englearn.R
 import com.example.englearn.databinding.FragmentHomeBinding
-import com.example.englearn.ui.dashboard.SecondFragment
+import com.example.englearn.ui.ViewModels.HomeViewModel
+import androidx.navigation.Navigation
 
 class HomeFragment : Fragment() {
 
@@ -32,17 +33,15 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val buttonView: Button = binding.forwardButton
-        homeViewModel.text.observe(viewLifecycleOwner) {
+        homeViewModel.buttonText.observe(viewLifecycleOwner) {
             buttonView.text = it
         }
+        val welcometextView: TextView = binding.welcomeText
+        homeViewModel.welcomeText.observe(viewLifecycleOwner){
+            welcometextView.text = it
+        }
         binding.forwardButton.setOnClickListener {
-            val secondFragment = SecondFragment()
-            requireActivity().supportFragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.nav_host_fragment_activity_main, secondFragment)
-                .remove(HomeFragment())
-                .addToBackStack(null)
-                .commit()
+            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_home_to_rhyme) };
 
         }
         return root

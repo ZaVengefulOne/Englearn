@@ -1,9 +1,7 @@
 <resources>
-    <string name="app_name">Englearn</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_second">Second</string>
-    <string name="title_third">Third</string>
-    <string name="Welcome">Добро пожаловать в Englearn!</string>
+    <string name="app_name">Poetry Generator</string>
+    <string name="title_home">Домашняя страница</string>
+    <string name="title_rhyme_generator">Генератор рифм</string>
+    <string name="title_theory">База данных</string>
+    <string name="welcome_theory">Добро пожаловать в базу знаний Poetry Helper! Выберите интересующую вас статью из списка ниже:</string>
 </resources>
