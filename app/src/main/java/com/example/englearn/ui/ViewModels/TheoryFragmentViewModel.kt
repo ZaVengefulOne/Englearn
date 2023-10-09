@@ -1,11 +1,14 @@
 package com.example.englearn.ui.ViewModels
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.englearn.data.repositories.ArticleRepository
 
-class TheoryFragmentViewModel : ViewModel() {
+class TheoryFragmentViewModel(application: Application) : AndroidViewModel(application) {
 
+//    private var repository = ArticleRepository(getApplication()) TODO: Доделать бдшку
     private val _text = MutableLiveData<String>().apply {
         value = "Мы проделали долгий путь...Назад?"
 

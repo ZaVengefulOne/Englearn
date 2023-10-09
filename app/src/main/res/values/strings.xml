@@ -3,5 +3,8 @@
     <string name="title_home">Домашняя страница</string>
     <string name="title_rhyme_generator">Генератор рифм</string>
     <string name="title_theory">База данных</string>
-    <string name="welcome_theory">Добро пожаловать в базу знаний Poetry Helper! Выберите интересующую вас статью из списка ниже:</string>
+    <string name="welcome_theory">Добро пожаловать в базу знаний Poetry Helper! Сегодняшняя статья дня:</string>
+    <string name="GetInfo">Получить данные</string>
+    <string name="ToRecieveTheArticleUseTheButtonBelow">Чтобы получить данные, используйте кнопку ниже.</string>
+    <string name="ArticleNameReplacement">Название статьи будет здесь</string>
 </resources>

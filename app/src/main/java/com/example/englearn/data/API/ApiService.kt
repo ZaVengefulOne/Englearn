@@ -6,6 +6,6 @@ import retrofit2.http.Headers
 
 interface ApiService {
     @GET("как-pisat-stixi/vvodnaya-lekciya/")
-    @Headers("Accept: text/html")
+//    @Headers("Accept: text/html")
     fun getArticle(): Call<String>
 }
