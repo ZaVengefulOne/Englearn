@@ -41,11 +41,10 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
-    implementation("org.koin:koin-android:3.1.2")
-    implementation("org.koin:koin-androidx-viewmodel:3.2.0")
-    implementation("org.koin:koin-androidx-scope:3.2.0")
-    api("com.google.dagger:dagger:2.27")
-    kapt("com.google.dagger:dagger-compiler:2.27")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    api("com.google.dagger:dagger:2.28.3")
+    annotationProcessor("com.google.dagger:dagger-compiler:2.28.3")
+    implementation ("com.squareup.picasso:picasso:2.5.2")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
