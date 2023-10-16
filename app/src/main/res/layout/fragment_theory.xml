@@ -12,10 +12,14 @@
         android:layout_width="389dp"
         android:layout_height="453dp"
         android:layout_marginBottom="12dp"
+        android:scrollbars="vertical"
         android:text="@string/ToRecieveTheArticleUseTheButtonBelow"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/getInfoButton"
-        tools:layout_editor_absoluteX="5dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/ArticleNameText"
@@ -24,9 +28,11 @@
         android:layout_marginBottom="4dp"
         android:text="@string/ArticleNameReplacement"
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/articleText"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -38,7 +44,8 @@
         android:textColor="@color/cyan"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/ArticleNameText"
-        tools:layout_editor_absoluteX="46dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/getInfoButton"
