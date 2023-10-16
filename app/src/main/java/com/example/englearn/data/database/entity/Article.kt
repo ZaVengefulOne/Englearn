@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "articles_table")
-class Article(val number: Int, val artName: String, val artText: String, val isRead: Boolean) {
+data class Article(val number: Int, val artName: String, val artText: String, val isRead: Boolean) {
     @PrimaryKey
     @ColumnInfo(name = "id")
     var uid: Int? = null

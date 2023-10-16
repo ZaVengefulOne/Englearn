@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -34,8 +35,6 @@ class TheoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val theoryFragmentViewModel =
-            ViewModelProvider(this).get(TheoryFragmentViewModel::class.java)
 
         _binding = FragmentTheoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -52,10 +51,14 @@ class TheoryFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val theoryFragmentViewModel =
+            ViewModelProvider(this).get(TheoryFragmentViewModel::class.java)
         super.onViewCreated(view, savedInstanceState)
         val articleText: TextView = binding.articleText
         val articleTitleText: TextView = binding.ArticleNameText
+        val getArticleButton: Button = binding.getInfoButton
         val interceptor = HttpLoggingInterceptor()
+        var articlesAmount: Int = 0
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         val client = OkHttpClient.Builder()
             .addInterceptor(interceptor)
@@ -67,9 +70,6 @@ class TheoryFragment : Fragment() {
             .build()
 
         val apiService = retrofit.create(ApiService::class.java)
-
-
-        val getArticleButton: Button = binding.getInfoButton
         getArticleButton.setOnClickListener {
 //            apiService.getArticle().enqueue(object : Callback<String> {
 //                override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -79,33 +79,34 @@ class TheoryFragment : Fragment() {
             val gfgThread = Thread {
                 try {
                     val document =
-                        Jsoup.connect("https://nsaturnia.ru/kak-pisat-stixi/vvodnaya-lekciya/").get();
+                        Jsoup.connect("https://nsaturnia.ru/kak-pisat-stixi/vvodnaya-lekciya/")
+                            .get();
                     val Titletext = document.title()
-//                        val ArticleText = document.getElementsContainingOwnText("пушкинских ")
-//                    val ArticleText = document.getElementsByClass("nativerent-content-integration").text()
                     val ArticleText = document.getElementsByClass("article-container post").text()
                     articleText.text = ArticleText
                     articleTitleText.text = Titletext
+                    articlesAmount += 1
+                    theoryFragmentViewModel.insertNewArticle(articlesAmount,Titletext, ArticleText,true)
                 } catch (e: Exception) {
-                    e.printStackTrace()
+                    articleText.text = "Ошибка! Статья не найдена!"
+                    articleTitleText.text = "Ошибка! Статья не найдена!"
                 }
             }
             gfgThread.start()
+    }
 
 
-//                        } else {
-//                            articleText.text = "Ошибка! Статья не найдена!"
-//                        }
-//                    } else {
-//                        articleText.text = "Ошибка! Статья не найдена!"
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<String>, t: Throwable) {
-//                    articleText.text = "Ошибка! Нет подключения к сети!"
-//                }
-//            })
-        }
+//        val scrollUpButton: Button = binding.scrollUp
+//        val scrollDownButton: Button = binding.scrollDown
+//        val ArticleScrollView: ScrollView = binding.scrollView2
+//        scrollUpButton.setOnClickListener {
+//            ArticleScrollView.scrollBy(0, 20)
+//        }
+//        scrollDownButton.setOnClickListener {
+//            ArticleScrollView.scrollBy(0, -20)
+//        }
+
+
     }
     override fun onDestroyView() {
         super.onDestroyView()

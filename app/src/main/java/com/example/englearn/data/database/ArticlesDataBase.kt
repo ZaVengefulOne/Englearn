@@ -4,15 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase
-import com.example.englearn.data.database.dao.AccountsDao
 import com.example.englearn.data.database.dao.ArticlesDAO
-import com.example.englearn.data.database.entity.Account
 import com.example.englearn.data.database.entity.Article
 
 
-@Database(entities = [Article::class], version = 1, exportSchema = false)
+@Database(entities = [Article::class], version = 1)
 abstract class ArticlesDataBase : RoomDatabase() {
-    abstract fun articlesDao(): ArticlesDAO?
+    abstract fun getArticlesDao(): ArticlesDAO
 
     companion object {
         @Volatile
